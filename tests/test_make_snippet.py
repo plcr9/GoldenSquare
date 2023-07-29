@@ -20,3 +20,8 @@ def test_given_five_words_returns_same_string():
 def test_given_six_words_returns_string_of_first_five_words_plus_dotdotdot():
     result = make_snippet("one two three four five six")
     assert result == "one two three four five ..."
+
+'''Given string delimited by commas, returns first five words and a ...'''
+def test_given_six_words_delimited_by_commas_does_not_count_as_words():
+    result = make_snippet("one,two,three,four,five,six")
+    assert result == "one,two,three,four,five,six"
