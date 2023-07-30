@@ -14,3 +14,8 @@ def test_extract_uppercase_returns_both_uppercase():
 def test_two_lowercase_returns_empty_string():
     result = extract_uppercase("hello world")
     assert result == []
+
+'''Given mixed case word, return an empty list'''
+def test_mixed_case_word_returns_empty_string():
+    result = extract_uppercase("hello WoRlD")
+    assert result == []
