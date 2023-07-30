@@ -9,3 +9,8 @@ def test_extract_uppercase_with_upper_case_then_lower():
 def test_extract_uppercase_returns_both_uppercase():
     result = extract_uppercase("HELLO WORLD")
     assert result == ["HELLO", "WORLD"]
+
+'''Given two lowercase words, return an empty string'''
+def test_two_lowercase_returns_empty_string():
+    result = extract_uppercase("hello world")
+    assert result == []
