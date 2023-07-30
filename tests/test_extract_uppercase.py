@@ -24,3 +24,7 @@ def test_mixed_case_word_returns_empty_string():
 def test_uppercase_word_with_exclamation_mark_returns_uppercase_without_exclamation_mark():
     result = extract_uppercase("hello WORLD!")
     assert result == ["WORLD"]
+
+'''Given empty string it returns an empty list'''
+def test_empty_string_returns_empty_list():
+    result = extract_uppercase("")
