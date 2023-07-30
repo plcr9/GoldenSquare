@@ -4,3 +4,8 @@ from lib.extract_uppercase import *
 def test_extract_uppercase_with_upper_case_then_lower():
     result = extract_uppercase("hello WORLD")
     assert result == ["WORLD"]
+
+'''Given two uppercase words, returns a list with both words'''
+def test_extract_uppercase_returns_both_uppercase():
+    result = extract_uppercase("HELLO WORLD")
+    assert result == ["HELLO", "WORLD"]
