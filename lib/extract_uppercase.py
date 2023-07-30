@@ -6,3 +6,7 @@ def extract_uppercase(mixed_words):
     result = [word for word in new_list2 if word.isupper()]
     return result
 
+def extract_no_value(no_words):
+    if no_words is None:
+        raise Exception("Value cannot be None")
+

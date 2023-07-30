@@ -1,3 +1,5 @@
+import pytest
+
 from lib.extract_uppercase import *
 
 '''Given a lower and an uppercase word, returns a list with the uppercase word'''
@@ -6,7 +8,7 @@ def test_extract_uppercase_with_upper_case_then_lower():
     assert result == ["WORLD"]
 
 '''Given two uppercase words, returns a list with both words'''
-def test_extract_uppercase_returns_both_uppercase():
+def test_extract_uppercase_returns_both_extract_uppercase():
     result = extract_uppercase("HELLO WORLD")
     assert result == ["HELLO", "WORLD"]
 
@@ -28,3 +30,12 @@ def test_uppercase_word_with_exclamation_mark_returns_uppercase_without_exclamat
 '''Given empty string it returns an empty list'''
 def test_empty_string_returns_empty_list():
     result = extract_uppercase("")
+    assert result == []
+
+'''Given none value, throws an error'''
+def test_given_none_value_throws_error():
+    result = extract_no_value(None)
+    with pytest.raises(Exception) as e:
+        result.extract_no_value()
+    error_message = list(e.value)
+    assert error_message == "Value cannot be None"
