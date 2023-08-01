@@ -70,3 +70,10 @@ def test_reading_chunk_wraps_on_multiple_calls():
     assert diary_entry.reading_chunk(2, 2) == "one two three four"
     assert diary_entry.reading_chunk(2, 2) == "five six"
     assert diary_entry.reading_chunk(2, 2) == "one two three four"
+
+'''Given contects of six words, if reading_chunk isa called repeatedly, the last chunk is the last words in the text. The next chunk after that is at the start again'''
+def test_reading_chunk_wraps_on_multiple_calls_with_exact_ending():
+    diary_entry = DiaryEntry("My title", "one two three four five six")
+    assert diary_entry.reading_chunk(2, 2) == "one two three four"
+    assert diary_entry.reading_chunk(2, 1) == "five six"
+    assert diary_entry.reading_chunk(2, 2) == "one two three four"
