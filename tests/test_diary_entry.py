@@ -50,7 +50,7 @@ def test_reading_time_wpm_of_zero():
         diary_entry.reading_time(0)
     assert str(err.value) == "Cannot calculate reading time with wpm of 0"
 
-'''Given contents of sxi words, and wpm of 2, and reading_time of 2 minutes, reading_chunk returns first four words'''
+'''Given contents of six words, and wpm of 2, and reading_time of 2 minutes, reading_chunk returns first four words'''
 def test_reading_chunk_with_two_wpm_and_two_minutes():
     diary_entry = DiaryEntry("My Title", "one two three four five six")
     result = diary_entry.reading_chunk(2, 2)
@@ -63,3 +63,10 @@ def test_reading_chunk_with_two_wpm_and_one_minute_called_multiple_times():
     assert diary_entry.reading_chunk(2, 1) == "three four"
     assert diary_entry.reading_chunk(2, 1) == "five six"
     assert diary_entry.reading_chunk(1, 1) == "seven"
+
+'''Given contects of six words, if reading_chunk isa called repeatedly, the last chunk is the last words in the text. The next chunk after that is at the start again'''
+def test_reading_chunk_wraps_on_multiple_calls():
+    diary_entry = DiaryEntry("My title", "one two three four five six")
+    assert diary_entry.reading_chunk(2, 2) == "one two three four"
+    assert diary_entry.reading_chunk(2, 2) == "five six"
+    assert diary_entry.reading_chunk(2, 2) == "one two three four"
