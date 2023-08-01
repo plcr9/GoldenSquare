@@ -18,3 +18,12 @@ def test_add_multiple_tasks():
     tracker.add("Walk the cat")
     tracker.add("Walk the frog")
     assert tracker.list_incomplete() == ["Walk the dog", "Walk the cat", "Walk the frog"]
+
+'''When multiple tasks added and one marked as complete, it disappears from the task list'''
+def test_marks_tasks_complete():
+    tracker = TaskTracker()
+    tracker.add("Walk the dog")
+    tracker.add("Walk the cat")
+    tracker.add("Walk the frog")
+    tracker.mark_complete(1)
+    assert tracker.list_incomplete() == ["Walk the dog", "Walk the frog"]

@@ -9,4 +9,4 @@ class TaskTracker():
         return self._tasks
 
     def mark_complete(self, index):
-        pass
+        del self._tasks[index]
