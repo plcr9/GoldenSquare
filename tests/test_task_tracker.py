@@ -1,3 +1,5 @@
+import pytest
+
 from lib.task_tracker import TaskTracker
 
 '''Initially, there are no tasks'''
@@ -27,3 +29,12 @@ def test_marks_tasks_complete():
     tracker.add("Walk the frog")
     tracker.mark_complete(1)
     assert tracker.list_incomplete() == ["Walk the dog", "Walk the frog"]
+
+'''If task marked as complete that does not exist, it raises an error'''
+def test_mark_task_that_is_not_complete():
+    tracker = TaskTracker()
+    tracker.add("Walk the dog")
+    with pytest.raises(Exception) as err:
+        tracker.mark_complete(1)
+    assert str(err.value) == "No such task to mark complete"
+    assert tracker.list_incomplete() == ["Walk the dog"]
