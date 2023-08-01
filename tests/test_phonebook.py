@@ -36,3 +36,9 @@ def test_ignores_numbers_that_do_not_start_with_zero():
     phone_book = Phonebook()
     phone_book.extract_numbers("My friend's number is 77000000000")
     assert phone_book.list_numbers() == []
+
+'''when entry added with non-11 digit numbers, they are ignored'''
+def test_ignores_non_11_digit_numbers():
+    phone_book = Phonebook()
+    phone_book.extract_numbers("Not right: 07 000 000 000 000 000 000")
+    assert phone_book.list_numbers() == []
